@@ -14,8 +14,7 @@ class Solution:
                 visited_fruits[fruit_delete] -=1
                 if visited_fruits[fruit_delete] == 0:
                     del visited_fruits[fruit_delete]
-                window_start +=1            
-            
+                window_start +=1             
             max_len = max(max_len, window_end - window_start + 1  )
             
         return max_len
