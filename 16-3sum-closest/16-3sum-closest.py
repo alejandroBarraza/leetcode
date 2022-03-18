@@ -3,7 +3,7 @@ class Solution:
         nums.sort()
         len_arr = len(nums)
         closes_num = nums[0] + nums[1] + nums[len_arr -1]
-        for index in range(len_arr - 2):
+        for index in range(len_arr):
             l,r = index + 1, len_arr -1
             while l < r:
                 summ = nums[index] + nums[l] + nums[r]  
