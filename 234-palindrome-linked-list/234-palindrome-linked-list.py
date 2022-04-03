@@ -21,7 +21,7 @@ class Solution:
         
         # check if are polindrome
         l, r = head, prev
-        while r:
+        while l and r:
             if l.val != r.val:
                 return False
             l = l.next
