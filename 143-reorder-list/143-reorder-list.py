@@ -28,8 +28,7 @@ class Solution:
             right_head.next = templ
             left_head = templ
             right_head = tempr
-        # if left_head is not None:
-        #     left_head.next = None
+        
             
             
             
