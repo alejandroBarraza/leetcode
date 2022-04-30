@@ -5,34 +5,37 @@
 #         self.next = next
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        # find middle
-        slow, fast = head,head.next
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
+        """
+        Do not return anything, modify head in-place instead.
+        """
         
-        # reverser linked list
+        # loop over and find the middle of the linked list
+        s, f = head,head
+        
+        while f and f.next:
+            s = s.next
+            f = f.next.next
+            
+        # after, slow is in the middle of the linked list and breake it
+        secondList = s.next
+        s.next = None
+        
+        # reverse the list from slow
         prev = None
-        while slow:
-            tmp = slow.next
-            slow.next = prev
-            prev = slow
-            slow = tmp
+        while secondList:
+            currNext = secondList.next
+            secondList.next = prev
+            prev = secondList
+            secondList = currNext
+        newSecondHead = prev
+            
+        # i already break the linked ist
+        while head and newSecondHead:
+            tmpHead = head.next
+            tmpSecondHead = newSecondHead.next
+            head.next = newSecondHead
+            newSecondHead.next = tmpHead
+            head = tmpHead
+            newSecondHead = tmpSecondHead
         
-        # reorder linked list
-        left_head , right_head = head, prev
-        while left_head and right_head:
-            templ = left_head.next
-            tempr = right_head.next
-            left_head.next = right_head
-            right_head.next = templ
-            left_head = templ
-            right_head = tempr
-        
             
-            
-            
-            
-
-
-        
